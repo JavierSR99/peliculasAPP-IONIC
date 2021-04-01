@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IPeliculas } from '../model/IPeliculas.interface';
 
@@ -20,7 +19,7 @@ export class PeliculaService {
     return this.http.get<IPeliculas>(this.url).pipe(map(results => results['Search']));
   }
 
-  getDetails (id: string) {
+  getFilmData (id: string) {
     return this.http.get<IPeliculas>(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=${this.apiKey}`);
   }
 

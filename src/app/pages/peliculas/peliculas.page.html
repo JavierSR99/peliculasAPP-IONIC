@@ -8,14 +8,17 @@
   <ion-searchbar [(ngModel)]="term" (ionChange)="searchChanged($event)" ></ion-searchbar>
 
   <ion-list>
-    <ion-item button *ngFor="let pelicula of (results | async)">
+    <ion-item button *ngFor="let pelicula of (results | async)" 
+      [routerLink]="['/', 'detalles', pelicula.imdbID]" 
+    >
       <ion-avatar slot="start">
-        <img src={{pelicula.Poster}} alt={{pelicula.Title}}>
+        <img src={{pelicula.Poster}} alt={{pelicula.Title}} *ngIf="pelicula.Poster !== 'N/A'" >
       </ion-avatar>
       <ion-label text-wrap>
         <h4> {{pelicula.Title}} </h4>
         {{pelicula.Year}}
       </ion-label>
+      <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
     </ion-item>
   </ion-list>
 </ion-content>

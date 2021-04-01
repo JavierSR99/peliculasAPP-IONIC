@@ -1,6 +1,6 @@
 export interface IPeliculas {
     Title: string,
-    Gener: string,
+    Genre: string,
     Rating: string,
     Year: string,
     Director: string,
