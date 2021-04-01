@@ -13,7 +13,7 @@ export class PeliculasPage implements OnInit {
 
   results: Observable<IPeliculas>;
   term: string = '';
-  type: string = '';
+  type: string = 'movie';
 
   constructor(private peliculaService: PeliculaService) { }
 

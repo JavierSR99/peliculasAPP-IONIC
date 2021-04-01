@@ -5,7 +5,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="term" (ionChange)="searchChanged($event)" >
+  <ion-searchbar [(ngModel)]="term" (ionChange)="searchChanged($event)" ></ion-searchbar>
 
-  </ion-searchbar>
+  <ion-list>
+    <ion-item button *ngFor="let pelicula of (results | async)">
+      <ion-avatar slot="start">
+        <img src={{pelicula.Poster}} alt={{pelicula.Title}}>
+      </ion-avatar>
+      <ion-label text-wrap>
+        <h4> {{pelicula.Title}} </h4>
+        {{pelicula.Year}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
